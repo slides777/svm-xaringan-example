@@ -5,7 +5,7 @@ author: "Steven V. Miller<br /> <br /> <br /> Department of Political Science"
 institute: Department of Political Science
 output:
   xaringan::moon_reader:
-    css: ["default", "~/Dropbox/miscelanea/svm-r-markdown-templates/svm-xaringan-style.css"]
+    css: ["default", "svm-xaringan-style.css"]
     lib_dir: libs
     nature:
       highlightStyle: github
@@ -20,7 +20,7 @@ options(device = function(file, width, height) {
   svg(tempfile(), width = width, height = height)
 })
 library(tidyverse)
-library(stevemisc)
+#library(stevemisc)
 ```
 
 
@@ -139,7 +139,7 @@ df <- data.frame(x = rnorm(1000))
 x <- df$x
 
 ggplot(df, aes(x)) + 
-  theme_steve_web() +
+  #theme_steve_web() +
   stat_function(fun = dnorm, colour = "black") +
   scale_x_continuous(limits = c(-4, 4), 
                      breaks = c(-4,  0,  4),
@@ -276,7 +276,8 @@ tribble(
   ~variable, ~est, ~se,
   "Latent Estimate of\nIce Cube's Day", 1.6, .231
 ) %>%
-  ggplot(.) + theme_steve_web() +
+  ggplot(.) + 
+  #theme_steve_web() +
   geom_hline(yintercept = .5, color = "red", lty=2) +
   geom_linerange(aes(x = variable, ymin = est - se*interval1,
                                 ymax = est + se*interval1),
